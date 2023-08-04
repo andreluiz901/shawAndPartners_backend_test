@@ -13,7 +13,7 @@ interface CsvData {
 
 const csvData: CsvData[] = [];
 
-router.post('/api/files', multerConfig.single('file'), async (req: Request, res: Response) => {
+router.post('/files', multerConfig.single('file'), async (req: Request, res: Response) => {
     const data: CsvData[] = [];
     const filePath = req.file?.path;
 
@@ -33,7 +33,7 @@ router.post('/api/files', multerConfig.single('file'), async (req: Request, res:
         });
 });
 
-router.get('/api/users', (req: Request, res: Response) => {
+router.get('/users', (req: Request, res: Response) => {
     const searchTerm = req.query.q as string;
 
     if (!searchTerm) {
